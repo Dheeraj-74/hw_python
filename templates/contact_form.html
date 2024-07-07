@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ 'Edit' if contact else 'Add' }} Contact</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="/static/js/script.js"></script>
+</head>
+<body>
+    <h1>{{ 'Edit' if contact else 'Add' }} Contact</h1>
+    <form method="POST">
+        <div class="form-group">
+            <label>Name:<input type="text" name="name" id="name" value="{{ contact.name if contact else '' }}" required></label>
+        </div>
+        <div class="form-group">
+            <label>Age:<input type="number" name="age" id="age" value="{{ contact.age if contact else '' }}" required></label>
+        </div>
+        <div class="form-group">
+            <label>Address:<textarea name="address" id="address" rows="4">{{ contact.address if contact else '' }}</textarea></label>
+        </div>
+        <div class="form-group">
+            <label>Phone Number:<input type="text" name="phone_number" id="phone_number" value="{{ contact.phone_number if contact else '' }}" required></label>
+        </div>
+        <input type="submit" value="Submit">
+    </form>
+    <a href="/">Back to list</a>
+</body>
+</html>
